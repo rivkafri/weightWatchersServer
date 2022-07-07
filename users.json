@@ -1,0 +1,101 @@
+{
+  "manager": {
+    "name": "Jon",
+    "email": "s@gmail.com",
+    "phone": "0543544909"
+  },
+  "users": [
+    {
+      "id": 1,
+      "firstName": "tami",
+      "lastName": "lev",
+      "address": {
+        "city": "jerusalem",
+        "street": "shamgar",
+        "number": 5
+      },
+      "phone": "0533145420",
+      "email": "tl@gmail.com",
+      "height": "1.6",
+      "weight": {
+        "start": "70",
+        "meetings": [
+          {
+            "date": "01-02-2022",
+            "weight": 71
+          },
+          {
+            "date": "01-03-2022",
+            "weight": 79
+          },
+          {
+            "date": "2022-07-03",
+            "weight": "50",
+            "comments": "good! you work perfect!",
+            "visit": true
+          }
+        ]
+      },
+      "diary": [
+        {
+
+        }
+      ],
+      "id": 3
+    },
+    {
+      "id": 4,
+      "firstName": "shira",
+      "lastName": "fishman",
+      "address": {
+        "city": "jerusalem",
+        "street": "yosef",
+        "number": 80
+      },
+      "phone": "0556669988",
+      "email": "a@gmail.com",
+      "height": "1.8",
+      "weight": {
+        "start": "72",
+        "meetings": []
+      },
+      "diary": []
+    },
+    {
+      "id": 5,
+      "firstName": "elisheva",
+      "lastName": "fish",
+      "address": {
+        "city": "jerusalem",
+        "street": "yosef",
+        "number": 80
+      },
+      "phone": "0556669999",
+      "email": "yf@gmail.com",
+      "height": "1.8",
+      "weight": {
+        "start": "72",
+        "meetings": []
+      },
+      "diary": []
+    },
+    {
+      "id": 6,
+      "firstName": "elisheva",
+      "lastName": "zak",
+      "address": {
+        "city": "bnei brak",
+        "street": "yosef",
+        "number": 90
+      },
+      "phone": "0501119999",
+      "email": "ez@gmail.com",
+      "height": "1.8",
+      "weight": {
+        "start": "72",
+        "meetings": []
+      },
+      "diary": []
+    }
+  ]
+}

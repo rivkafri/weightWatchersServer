@@ -6,9 +6,9 @@ app.use(cors());
 const usersController = require('./controllers/users.controller');
 const diaryController = require('./controllers/diary.controller');
 const accountController = require('./controllers/account.controller');
-const meetingControllers=require('./controllers/meeting.controller');
+const meetingControllers = require('./controllers/meeting.controller');
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -1,5 +1,5 @@
 const fs = require('fs/promises');
-const getData = async () => fs.readFile('../users.json').then(data => JSON.parse(data));
+const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(data));
 
 const login = async (email) => {
     const data = await getData();

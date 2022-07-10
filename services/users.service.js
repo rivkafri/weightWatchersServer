@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 
-const getData = async () => fs.readFile('../users.json').then(data => JSON.parse(data));
-const updateData = async (data) => fs.writeFile('../users.json', JSON.stringify(data));
+const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(data));
+const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
 
 const getUsers = async () => {
     const data = await getData();

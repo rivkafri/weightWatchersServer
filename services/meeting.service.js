@@ -2,8 +2,8 @@ const fs = require('fs/promises');
 const uuid = require('uuid');
 const uuidv4 = uuid.v4;
 
-const getData = async () => fs.readFile('../users.json').then(data => JSON.parse(data));
-const updateData = async (data) => fs.writeFile('../users.json', JSON.stringify(data));
+const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(data));
+const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
 
 const addUserMeeting = async (id, updates) => {
     const data = await getData();

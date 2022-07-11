@@ -8,7 +8,7 @@ const login = async (email) => {
         user = data.manager;
     }
     if (!user) {
-        user = await data.users.find(user => user.email == email);
+        user = await data.users.find(user => user.email === email);
     }
     return user;
 }

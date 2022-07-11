@@ -1,80 +1,83 @@
 const express = require('express');
-const fs = require('fs/promises');
+// const fs = require('fs/promises');
 const router = express.Router();
 const { getUserById, getUsers, addUser, deleteUser, updateUser, getBySearch } = require('../services/users.service');
 
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res) => {
     const newUser = req.body;
     try {
         await addUser(newUser);
+        res.send();
     }
     catch (error) {
-        next(error);
+        res.status(400).json({
+            massage: 'post failed',
+        })
     }
-    res.send();
 });
 
-router.put('/:id', async (req, res, next) => {
-    const id = req.params.id;
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
     console.log(id);
     const updates = req.body;
     console.log(updates);
     try {
         await updateUser(id, updates);
+        res.send();
     }
     catch (error) {
-        next(error);
+        res.status(400).json({
+            massage: 'put failed'
+        })
     }
-    res.send();
 });
 
-router.delete('/:id', async (req, res, next) => {
-    const id = req.params.id;
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
     console.log(id);
     try {
         await deleteUser(id);
+        res.send();
     }
     catch (error) {
-        next(error);
+        res.status(404).json({ message: 'id not found' });
     }
-    res.send();
 });
 
-router.get('/:query', async (req, res, next) => {
+router.get('/:query', async (req, res) => {
     console.log(req.params.query);
-    let users;
     try {
-        users = await getBySearch(req.params.query);
+        const users = await getBySearch(req.params.query);
+        res.send(users);
     }
     catch (error) {
-        next(error);
+        res.status(404).json({
+            message: error.message
+        })
     }
-    res.send(users);
 });
 
-router.get('/:id', async (req, res, next) => {
-    const id = req.params.id;
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
     console.log(id);
-    let user;
     try {
-        user = await getUserById(id);
+        const user = await getUserById(id);
         console.log(user);
+        res.send(user);
     }
     catch (error) {
-        next(error);
+        res.status(404).json({ message: 'id not found' });
     }
-    res.send(user);
 });
 
-router.get('/', async (req, res, next) => {
-    let users;
+router.get('/', async (req, res) => {
     try {
-        users = await getUsers();
+        const users = await getUsers();
+        res.send(users);
     }
     catch (error) {
-        next(error);
+        res.status(500).json({ message: 'reading from json failed' })
     }
-    res.send(users);
 });
 
 module.exports = router;

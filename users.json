@@ -21,11 +21,11 @@
         "start": "70",
         "meetings": [
           {
-            "date": "01-02-2022",
+            "date": "2022-01-01",
             "weight": 71
           },
           {
-            "date": "01-03-2022",
+            "date": "2022-02-01",
             "weight": 79
           },
           {
@@ -37,14 +37,11 @@
         ]
       },
       "diary": [
-        {
-
-        }
-      ],
-      "id": 3
+        {}
+      ]
     },
     {
-      "id": 4,
+      "id": 2,
       "firstName": "shira",
       "lastName": "fishman",
       "address": {
@@ -57,45 +54,44 @@
       "height": "1.8",
       "weight": {
         "start": "72",
-        "meetings": []
+        "meetings": [
+          {
+            "date": "2022-07-11",
+            "weight": "68",
+            "comments": "perfect!",
+            "visit": true,
+            "idmeeting": "1ffae8ef-8d95-48de-9591-e9a309b92950"
+          }
+        ]
       },
       "diary": []
     },
     {
-      "id": 5,
-      "firstName": "elisheva",
-      "lastName": "fish",
-      "address": {
-        "city": "jerusalem",
-        "street": "yosef",
-        "number": 80
-      },
-      "phone": "0556669999",
-      "email": "yf@gmail.com",
-      "height": "1.8",
-      "weight": {
-        "start": "72",
-        "meetings": []
-      },
-      "diary": []
-    },
-    {
-      "id": 6,
-      "firstName": "elisheva",
+      "id": 3,
+      "firstName": "esti",
       "lastName": "zak",
       "address": {
-        "city": "bnei brak",
-        "street": "yosef",
-        "number": 90
+        "city": "jerusalem",
+        "street": "roni",
+        "number": 9
       },
-      "phone": "0501119999",
-      "email": "ez@gmail.com",
+      "phone": "0521230987",
+      "email": "e987@gmail.com",
       "height": "1.8",
       "weight": {
         "start": "72",
         "meetings": []
       },
-      "diary": []
+      "diary": [
+        {
+          "id": "b47e3578-364f-4eb8-bd3e-a2bb6277b582",
+          "date": "2022-07-11",
+          "summery": [
+            "bread",
+            "potato"
+          ]
+        }
+      ]
     }
   ]
 }

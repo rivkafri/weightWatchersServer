@@ -1,5 +1,4 @@
 const fs = require('fs/promises');
-const { parse } = require('path');
 const uuid = require('uuid');
 const uuidv4 = uuid.v4;
 

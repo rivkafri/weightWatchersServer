@@ -13,6 +13,11 @@ const login = async (email) => {
     return user;
 }
 
+const getAllData = async () => {
+    const allData = await getData();
+    return allData;
+}
 module.exports = {
-    login
+    login,
+    getAllData
 }

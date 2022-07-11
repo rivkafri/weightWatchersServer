@@ -20,6 +20,19 @@ app.use('/meeting', meetingControllers);
 
 app.use(express.static('public'));
 
+//
+const FS = require('fs');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+// const customCss = FS.readFileSync((process.cwd() + "/swagger.css"), 'utf8');
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { customCss }));
+app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument)
+);
+//
+
 app.listen(port, function () {
     console.log(`Example app listening at http://localhost:${port}`)
 });

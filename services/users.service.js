@@ -10,7 +10,7 @@ const getUsers = async () => {
 
 const getUserById = async (id) => {
     const data = await getData();
-    const user = await data.users.find(user => user.id == id);
+    const user = await data.users.find(user => user.id === parseInt(id));
     return user;
 }
 
@@ -117,7 +117,7 @@ const addUser = async (newUser) => {
         id = users[users.length - 1].id + 1;
     else
         id = 1;
-    let obj = {
+    const NewUser = {
         id: id,
         firstName: newUser.firstName, lastName: newUser.lastName, address: {
             city: newUser.city, street: newUser.street,
@@ -125,7 +125,7 @@ const addUser = async (newUser) => {
         }, phone: newUser.phone, email: newUser.email, height: newUser.height,
         weight: { start: newUser.weight, meetings: [] }, diary: []
     };
-    users.push(obj);
+    users.push(NewUser);
     console.log(users);
     const AllData = { 'manager': data.manager, 'users': users };
     await updateData(AllData);
@@ -134,7 +134,7 @@ const addUser = async (newUser) => {
 const deleteUser = async (id) => {
     const data = await getData();
     const users = data.users || [];
-    const index = await users.findIndex(user => user.id === id);
+    const index = await users.findIndex(user => user.id === parseInt(id));
     users.splice(index, 1);
     const AllData = { 'manager': data.manager, 'users': users };
     await updateData(AllData);
@@ -156,7 +156,7 @@ const updateOne = (_user, updates) => {
 const updateUser = async (id, updates) => {
     const data = await getData();
     const users = data.users || [];
-    const _user = await users.find(user => user.id == id);
+    const _user = await users.find(user => user.id === parseInt(id));
     updateOne(_user, updates);
     const AllData = { 'manager': data.manager, 'users': users };
     await updateData(AllData);

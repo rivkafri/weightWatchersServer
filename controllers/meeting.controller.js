@@ -1,80 +1,73 @@
-const { ok } = require('assert');
 const express = require('express');
-const fs = require('fs/promises');
 const router = express.Router();
-const uuid = require('uuid');
-const uuidv4 = uuid.v4;
 const { addUserMeeting, getMeetings, getMeetingsByUserId
-,updateMeeting, deleteMeeting } = require('../services/meeting.service');
-//POST /meeting/:id
-router.post('/:id', async (req, res, next) => {
-    const id = req.params.id;
+    , updateMeeting, deleteMeeting } = require('../services/meeting.service');
+
+router.post('/:id', async (req, res) => {
+    const { id } = req.params;
     console.log(id);
-    const idmeeting = uuidv4();
     const newMeeting = req.body;
-    newMeeting.idmeeting = idmeeting;
     console.log(newMeeting);
     try {
         await addUserMeeting(id, newMeeting);
+        res.send();
     }
     catch (error) {
-        next(error);
+        res.status(400).json({ message: error.message });
     }
-    res.send();
 });
 
 //GET /meeting
-router.get('/', async (req, res, next) => {
-    let meetings;
+router.get('/', async (req, res) => {
     try {
-        meetings = await getMeetings();
+        const meetings = await getMeetings();
         console.log(meetings);
+        res.send(meetings);
     }
     catch (error) {
-        next(error);
+        res.status(500).json({ message: error.message });
     }
-    res.send(meetings);
 });
 
 //GET /meeting/:id
-router.get('/:id', async (req, res, next) => {
-    const id = req.params.id;
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
     console.log(id);
-    let meetings;
     try {
-        meetings = await getMeetingsByUserId(id);
+        const meetings = await getMeetingsByUserId(id);
         console.log(meetings);
+        res.send(meetings);
     }
     catch (error) {
-        next(error);
+        res.status(404).json({ message: 'idMeeting not found' })
     }
-    res.send(meetings);
 });
 
 //DELETE /meeting/:id
-router.delete('/:id', async (req, res, next) => {
-    const id = req.params.id;
+router.delete('/:idUser/:id', async (req, res) => {
+    const { id } = req.params;
+    const { idUser } = req.params;
     try {
-        await deleteMeeting(id);
+        await deleteMeeting(idUser, id);
+        res.send();
     } catch (error) {
-        next(error);
+        res.status(400).json({ message: 'idMeeting not found' });
     }
-    res.send();
 })
 
 //PUT /meeting/:id
-router.put('/:id', async (req, res, next) => {
-    const id = req.params.id;
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
     console.log(id);
     const updates = req.body;
     console.log(updates);
     try {
-        await updateMeeting(updates,id);
+        await updateMeeting(updates, id);
+        res.send();
     }
     catch (error) {
-        next(error);
+        res.status(400).json({ message: 'idMeeting not found' });
     }
-    res.send();
 });
 
 

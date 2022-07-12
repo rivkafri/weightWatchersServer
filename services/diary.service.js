@@ -14,12 +14,18 @@ const getDiaryById = async (id) => {
 }
 
 const addDiary = async (idUser, newDiary) => {
+    console.log("ffffffff"+newDiary);
     const data = await getData();
     const users = data.users || [];
     const id = uuidv4();
     const _user = await users.find(user => user.id === parseInt(idUser));
-    const summeryDay = { id: id, date: newDiary.date, summery: newDiary.summery };
-    _user.diary.push(summeryDay);
+    console.log(_user);
+    const diary=_user.diary;
+    console.log(diary);
+    const summeryDay = { id: id, date: newDiary.obj.date, summery:newDiary.obj.summery };
+    console.log(summeryDay);
+    diary.push(summeryDay);
+    console.log("after"+ diary);
     const AllData = { 'manager': data.manager, 'users': users };
     await updateData(AllData);
 }

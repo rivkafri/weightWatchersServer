@@ -55,10 +55,13 @@ const getMeetingsById = async (id, allMeetings) => {
 const updateMeeting = async (updates, id) => {
     const data = await getData();
     const users = data.users || [];
+    const user = await data.users.find(user => user.id === parseInt(id));
     const allMeetings = [];
     data.users.forEach(element => {
         element.weight.meetings.forEach(m => {
-            allMeetings.push(m);
+            if(element===user){
+                allMeetings.push(m);
+            }
         })
     });
     const meeting = await getMeetingsById(id, allMeetings);

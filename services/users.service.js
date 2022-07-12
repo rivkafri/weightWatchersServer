@@ -123,7 +123,7 @@ const addUser = async (newUser) => {
             city: newUser.city, street: newUser.street,
             number: newUser.number
         }, phone: newUser.phone, email: newUser.email, height: newUser.height,
-        weight: { start: newUser.weight, meetings: [] }, diary: []
+        weight: newUser.weight , diary: []
     };
     users.push(NewUser);
     console.log(users);

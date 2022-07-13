@@ -16,7 +16,7 @@ const addUserMeeting = async (id, updates) => {
         console.log("befor" + meetings);
         const newMeeting = {
             date: updates.date, weight: updates.weight,
-            comments: updates.comments, visit: updates.visit, idmeeting: idmeeting
+            comments: updates.comments, visit: updates.visit, idmeeting
         };
         meetings.push(newMeeting);
         console.log("after" + meetings);
@@ -59,7 +59,7 @@ const updateMeeting = async (updates, id) => {
     const allMeetings = [];
     data.users.forEach(element => {
         element.weight.meetings.forEach(m => {
-            if(element===user){
+            if (element === user) {
                 allMeetings.push(m);
             }
         })

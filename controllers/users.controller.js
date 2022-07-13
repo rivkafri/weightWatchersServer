@@ -5,6 +5,7 @@ const { getUserById, getUsers, addUser, deleteUser, updateUser, getBySearch } = 
 
 router.post('/', async (req, res) => {
     const newUser = req.body;
+    console.log(newUser);
     try {
         await addUser(newUser);
         res.send();
@@ -44,10 +45,12 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-router.get('/:query', async (req, res) => {
-    console.log(req.params.query);
+router.post('/:query', async (req, res) => {
+    const searches = req.body;
+    console.log(searches);
     try {
-        const users = await getBySearch(req.params.query);
+        const users = await getBySearch(searches);
+        console.log(users);
         res.send(users);
     }
     catch (error) {

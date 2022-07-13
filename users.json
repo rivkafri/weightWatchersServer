@@ -1,1 +1,122 @@
-{"manager":{"name":"Jon","email":"s@gmail.com","phone":"0543544909"},"users":[{"id":1,"firstName":"tami","lastName":"lev","address":{"city":"jerusalem","street":"shamgar","number":5},"phone":"0533145420","email":"tl@gmail.com","height":"1.6","weight":{"start":"70","meetings":[{"date":"2022-01-01","weight":71},{"date":"2022-02-01","weight":79},{"date":"2022-07-03","weight":"50","comments":"good! you work perfect!","visit":true}]},"diary":[{}]},{"id":2,"firstName":"shira","lastName":"fishman","address":{"city":"jerusalem","street":"yosef","number":80},"phone":"0556669988","email":"a@gmail.com","height":"1.8","weight":{"start":"72","meetings":[{"date":"2022-07-11","weight":"68","comments":"perfect!","visit":true,"idmeeting":"1ffae8ef-8d95-48de-9591-e9a309b92950"}]},"diary":[]},{"id":3,"firstName":"esti","lastName":"zak","address":{"city":"jerusalem","street":"roni","number":9},"phone":"0521230987","email":"e987@gmail.com","height":"1.8","weight":{"start":"72","meetings":[]},"diary":[{"id":"b47e3578-364f-4eb8-bd3e-a2bb6277b582","date":"2022-07-11","summery":["bread","potato"]},{"id":"6eccd379-023d-438e-bfc7-63843c65f9e6","date":"2022-07-12","summery":["potato"]}]},{"id":4,"firstName":"שירה","lastName":"רוזנצויג","address":{},"phone":"0526176141","email":"9744203@gmail.com","height":"1.70","weight":{"start":"65","meetings":[]},"diary":[]}]}
+{
+    "manager": {
+        "name": "Jon",
+        "email": "s@gmail.com",
+        "phone": "0543544909"
+    },
+    "users": [
+        {
+            "id": 1,
+            "firstName": "tami",
+            "lastName": "lev",
+            "address": {
+                "city": "jerusalem",
+                "street": "shamgar",
+                "number": 5
+            },
+            "phone": "0533145420",
+            "email": "tl@gmail.com",
+            "height": "1.6",
+            "weight": {
+                "start": "70",
+                "meetings": [
+                    {
+                        "date": "2022-01-01",
+                        "weight": 71
+                    },
+                    {
+                        "date": "2022-02-01",
+                        "weight": 79
+                    },
+                    {
+                        "date": "2022-07-03",
+                        "weight": "50",
+                        "comments": "good! you work perfect!",
+                        "visit": true
+                    }
+                ]
+            },
+            "diary": [
+                {}
+            ]
+        },
+        {
+            "id": 2,
+            "firstName": "shira",
+            "lastName": "fishman",
+            "address": {
+                "city": "jerusalem",
+                "street": "yosef",
+                "number": 80
+            },
+            "phone": "0556669988",
+            "email": "a@gmail.com",
+            "height": "1.8",
+            "weight": {
+                "start": "72",
+                "meetings": [
+                    {
+                        "date": "2022-07-11",
+                        "weight": "68",
+                        "comments": "perfect!",
+                        "visit": true,
+                        "idmeeting": "1ffae8ef-8d95-48de-9591-e9a309b92950"
+                    }
+                ]
+            },
+            "diary": []
+        },
+        {
+            "id": 3,
+            "firstName": "esti",
+            "lastName": "zak",
+            "address": {
+                "city": "rechasim",
+                "street": "roni",
+                "number": 9
+            },
+            "phone": "0521230987",
+            "email": "e987@gmail.com",
+            "height": "1.8",
+            "weight": {
+                "start": "72",
+                "meetings": []
+            },
+            "diary": [
+                {
+                    "id": "b47e3578-364f-4eb8-bd3e-a2bb6277b582",
+                    "date": "2022-07-11",
+                    "summery": [
+                        "bread",
+                        "potato"
+                    ]
+                },
+                {
+                    "id": "6eccd379-023d-438e-bfc7-63843c65f9e6",
+                    "date": "2022-07-12",
+                    "summery": [
+                        "potato"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "firstName": "efrat",
+            "lastName": "frid",
+            "address": {
+                "city": "rechasim",
+                "street": "hzait",
+                "number": "2"
+            },
+            "phone": "0591234567",
+            "email": "eff@GMAIL.COM",
+            "height": "1.70",
+            "weight": {
+                "start": "71",
+                "meetings": []
+            },
+            "diary": []
+        }
+    ]
+}

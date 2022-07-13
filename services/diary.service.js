@@ -1,6 +1,4 @@
 const fs = require('fs/promises');
-// const { parse } = require('path');
-// const internal = require('stream');
 const uuid = require('uuid');
 const uuidv4 = uuid.v4;
 
@@ -14,18 +12,17 @@ const getDiaryById = async (id) => {
 }
 
 const addDiary = async (idUser, newDiary) => {
-    console.log("ffffffff"+newDiary);
     const data = await getData();
     const users = data.users || [];
     const id = uuidv4();
     const _user = await users.find(user => user.id === parseInt(idUser));
     console.log(_user);
-    const diary=_user.diary;
+    const diary = _user.diary;
     console.log(diary);
-    const summeryDay = { id: id, date: newDiary.obj.date, summery:newDiary.obj.summery };
+    const summeryDay = { id, date: newDiary.date, summery: newDiary.summery };
     console.log(summeryDay);
     diary.push(summeryDay);
-    console.log("after"+ diary);
+    console.log("after" + diary);
     const AllData = { 'manager': data.manager, 'users': users };
     await updateData(AllData);
 }

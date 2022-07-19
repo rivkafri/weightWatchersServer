@@ -1,5 +1,4 @@
 const express = require('express');
-// const fs = require('fs/promises');
 const router = express.Router();
 const { getUserById, getUsers, addUser, deleteUser, updateUser, getBySearch } = require('../services/users.service');
 
@@ -7,8 +6,11 @@ router.post('/', async (req, res) => {
     const newUser = req.body;
     console.log(newUser);
     try {
-        await addUser(newUser);
-        res.send();
+        const succsess = await addUser(newUser);
+        if (succsess)
+            res.send('true');
+        else
+            res.send('false');
     }
     catch (error) {
         res.status(400).json({
@@ -50,7 +52,6 @@ router.post('/:query', async (req, res) => {
     console.log(searches);
     try {
         const users = await getBySearch(searches);
-        console.log(users);
         res.send(users);
     }
     catch (error) {

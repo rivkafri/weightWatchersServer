@@ -1,41 +1,31 @@
 const fs = require('fs/promises');
-const uuid = require('uuid');
-const uuidv4 = uuid.v4;
+const User = require('../models/user');
+const { ObjectId } = require('mongodb');
 
-const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(data));
-const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
-
+//v
 const getDiaryById = async (id) => {
-    const data = await getData();
-    const diary = await data.users.find(user => user.id === parseInt(id)).diary;
-    return diary;
+    const user = await User.findById(id);
+    return user.diary;
 }
-
+//v
 const addDiary = async (idUser, newDiary) => {
-    const data = await getData();
-    const users = data.users || [];
-    const id = uuidv4();
-    const _user = await users.find(user => user.id === parseInt(idUser));
-    console.log(_user);
-    const diary = _user.diary;
-    console.log(diary);
-    const summeryDay = { id, date: newDiary.date, summery: newDiary.summery };
-    console.log(summeryDay);
-    diary.push(summeryDay);
-    console.log("after" + diary);
-    const AllData = { 'manager': data.manager, 'users': users };
-    await updateData(AllData);
+    const user = await User.findOne({ _id: ObjectId(idUser) });
+    user.diary.push(newDiary);
+    await User.findByIdAndUpdate(idUser, user);
 }
 
 const updateDiaryById = async (idUser, idDiary, updatesForDay) => {
-    const data = await getData();
-    const users = data.users || [];
-    const user = await users.find(user => user.id === parseInt(idUser));
-    const diary = await user.diary;
-    const day = await diary.find(day => day.id === idDiary);
-    Object.assign(day, updatesForDay);
-    const AllData = { 'manager': data.manager, 'users': users };
-    await updateData(AllData);
+    const user = await User.findOne({ _id: ObjectId(idUser) });
+    console.log(user + user.diary);
+    // console.log(user.diary.ObjectId(_id));
+    // const d = await user.diary.find(day => day._id === idDiary);
+    // console.log(d);
+    // Object.assign(d, updatesForDay);
+    // console.log(diary);
+    // await User.findByIdAndUpdate(idUser, user);
+    // diary = updatesForDay;
+    // console.log(diary);
+    // await User.findByIdAndUpdate(idUser, user);
 }
 
 const deleteDayOfDiary = async (idUser, idDiary) => {

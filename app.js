@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 app.use(cors());
+const db = require('./models/db');
 
 const usersController = require('./controllers/users.controller');
 const diaryController = require('./controllers/diary.controller');
@@ -9,7 +10,7 @@ const accountController = require('./controllers/account.controller');
 const meetingControllers = require('./controllers/meeting.controller');
 
 const port = process.env.PORT || 8000;
-
+db.connect();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
